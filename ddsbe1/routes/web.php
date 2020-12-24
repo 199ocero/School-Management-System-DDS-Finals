@@ -29,3 +29,6 @@ $router->get('/roles/{id}', 'RoleController@findRole'); // get role by id
 //department
 $router->get('/department','DepartmentController@getDepartment'); //get all department
 $router->post('/department', 'DepartmentController@createDepartment');  // create new department record
+$router->get('/department/{id}', 'DepartmentController@findDepartment'); // get user by id
+$router->put('/department/{id}', 'DepartmentController@updateDepartment'); // update user record
+$router->delete('/department/{id}', 'DepartmentController@deleteDepartment'); // delete record

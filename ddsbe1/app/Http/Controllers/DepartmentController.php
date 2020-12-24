@@ -16,73 +16,61 @@ Class DepartmentController extends Controller {
     }
 
     public function getDepartment(){
-        $users =  Department::all();
-        return $this->successResponse($users);
+        $department =  Department::all();
+        return $this->successResponse($department);
     }
 
     public function createDepartment(Request $request)
     {
         $rules = [
+            'id' => 'required|min:1|max:200',
             'name' => 'required|min:1|max:200',
             'date' => 'required|min:1|max:200',
         ];
 
         $this->validate($request, $rules);
 
-        //validate if there is role id
-
-        //$role =Roles::findOrFail($request->roleid);
         $department = Department::create($request->all());
 
         return $this->createSuccess($department);
     }
 
 
+    public function findDepartment($id)
+    {
+        $user = Department::findOrFail($id);
+        return $this->successResponse($user);
+    }
 
+    public function updateDepartment(Request $request, $id)
+    {
+        $rules = [
+            'id' => 'required|max:200',
+            'name' => 'required|max:200',
+            'date' => 'required|max:200',
+        ];
 
+        $this->validate($request, $rules);
 
+        $department = Department::findOrFail($id);
 
+        $department->fill($request->all());
 
+        // if no changes happen
+        if ($department->isClean()) {
+            return $this->errorResponse('At least one value must change', Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
+        $department->save();
+        
+        return $this->updateSuccess($department);
+    }
 
-
-
-    // public function findUser($id)
-    // {
-    //     $user = User::findOrFail($id);
-    //     return $this->successResponse($user);
-    // }
-
-    // public function updateUser(Request $request, $id)
-    // {
-    //     $rules = [
-    //         'username' => 'max:20',
-    //         'password' => 'max:20',
-    //         'roleid' => 'required|numeric|min:1|not_in:0',
-    //     ];
-
-    //     $this->validate($request, $rules);
-
-    //     //validate if there is role id
-    //     $role =Roles::findOrFail($request->roleid);
-    //     $user = User::findOrFail($id);
-
-    //     $user->fill($request->all());
-
-    //     // if no changes happen
-    //     if ($user->isClean()) {
-    //         return $this->errorResponse('At least one value must change', Response::HTTP_UNPROCESSABLE_ENTITY);
-    //     }
-
-    //     $user->save();
-    //     return $this->updateSuccess($user);
-    // }
-
-    // public function delete($id) {
-    //     $user = User::findOrFail($id);
-    //     $user->delete();
-    //     return $this->deleteSuccess($user);
-    // }
+    public function deleteDepartment($id) {
+        $department = Department::findOrFail($id);
+        $department->delete();
+        return $this->deleteSuccess($department);
+    }
 }
 
 ?>

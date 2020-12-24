@@ -11,33 +11,13 @@
 |
 */
 
-//login
-$router->get('/', function () use ($router) {
-    return view('login');
-});
 
-
-//dashboard
-$router->get('/dashboard', function () use ($router) {
-    return view('dashboard.dashboard');
-});
-
-//admin
-$router->get('/admin', 'Admin\DashboardController@registeredAdmin');
-$router->post('/admin-create', 'Admin\DashboardController@createAdmin');
-$router->get('/admin-edit/{id}', 'Admin\DashboardController@editAdmin');
-$router->put('/admin-update/{id}', 'Admin\DashboardController@updateAdmin');
-$router->delete('/admin-delete/{id}', 'Admin\DashboardController@deleteAdmin');
-
-//dashboard
-$router->get('/department', 'Department\DepartmentController@registeredAdmin');
 
 
 $router->group(['middleware' => 'client.credentials'],function() use ($router){
     
-    //routes for site 1
-     //show all users from site 1
-    $router->get('/users1', 'User1Controller@getUsers');
+    //routes for site 
+    $router->get('/users1', 'User1Controller@getUsers');//show all users from site 1
     $router->post('/users1', 'User1Controller@createUser'); //create users from site 1
     $router->get('/users1/{id}', 'User1Controller@findUser'); //find users with specific ID from site 1
     $router->put('/users1/{id}', 'User1Controller@updateUser'); //update users with specific ID from site 1
@@ -50,9 +30,12 @@ $router->group(['middleware' => 'client.credentials'],function() use ($router){
     $router->get('/users2/{id}', 'User2Controller@findUser'); //find users with specific ID from site 1
     $router->put('/users2/{id}', 'User2Controller@updateUser'); //update users with specific ID from site 1
     $router->delete('/users2/{id}', 'User2Controller@deleteUser'); //delete users with specific ID from site 1
+
+    //deparment site 1
+    $router->get('/department1', 'DepartmentController@getDepartment');//show all users from site 1
+    $router->post('/department1', 'DepartmentController@createDepartment'); //create users from site 1
+    $router->get('/department1/{id}', 'DepartmentController@findDepartment'); //find users with specific ID from site 1
+    $router->put('/department1/{id}', 'DepartmentController@updateDepartment'); //update users with specific ID from site 1
+    $router->delete('/department1/{id}', 'DepartmentController@deleteDepartment'); //delete users with specific ID from site 1
 });
 
-// //site1
-// $router->get('/users1', 'User1Controller@getUsers');
-
-$router->get('/show', 'Admin\DashboardController@showRes');

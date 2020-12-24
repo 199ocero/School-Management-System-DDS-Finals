@@ -118,7 +118,7 @@
                     <hr/>
                     <p style="margin-left: 1.5rem; color:white" class="font-weight-light">Security Management</p>
                     <li>
-                        <a href="/api-key">
+                        <a href="/security">
                             <i class="fas fad fa-key"></i>
                             <p>API Key</p>
                         </a>

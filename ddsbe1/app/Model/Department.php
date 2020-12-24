@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Department extends Model
 {
     public $timestamps = false;
-        
+    public $incrementing = false;
     //name of the table
     protected $table = 'department';
     // column sa table
@@ -16,5 +16,4 @@ class Department extends Model
     ];
     
     protected $primaryKey = 'id';
-    protected $hidden = ['password'];
 }

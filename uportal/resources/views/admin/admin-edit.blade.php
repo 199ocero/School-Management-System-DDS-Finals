@@ -53,7 +53,7 @@
                     </div>
                               
                 </div>
-                <div class="text-right">
+                <div class="text-right" style="margin-right: 13px">
                     <a href="/admin" class="btn btn-secondary">Cancel</a>
                     <button type="submit" name="update" class="btn btn-warning">Update</button>
                 </div>

@@ -27,6 +27,10 @@ Route::group(['middleware'=>['auth','admin']],function (){
         return view('dashboard.dashboard');
     });
 
+    Route::get('/security', function () {
+        return view('security.security');
+    });
+
     //admin routes
     Route::get('/admin', 'Admin\AdminController@registeredAdmin');
     Route::post('/admin-create', 'Admin\AdminController@createAdmin');
@@ -41,4 +45,6 @@ Route::group(['middleware'=>['auth','admin']],function (){
     Route::put('/department-update/{id}', 'Department\DepartmentController@updateDeparment');
     Route::delete('/department-delete/{id}', 'Department\DepartmentController@deleteDeparment');
 
+
 });
+

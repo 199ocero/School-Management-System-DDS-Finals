@@ -7,9 +7,11 @@ use App\User;
 use Illuminate\Http\Request;
 use Hash;
 use Illuminate\Support\Facades\Session;
+use Auth;
 
 class AdminController extends Controller
 {
+
     public function registeredAdmin(){
         $admin = User::all();
         return view('admin.admin')->with('admin',$admin);
