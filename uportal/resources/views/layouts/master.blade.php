@@ -34,6 +34,7 @@
     <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/demo/demo.css" rel="stylesheet" />
+    
 
 
     <style>
@@ -98,19 +99,19 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/students">
+                        <a href="/course">
                             <i class="fas fa-scroll"></i>
                             <p>Courses</p>
                         </a>
                     </li>
                     <li>
-                        <a href="/students">
+                        <a href="/subject">
                             <i class="fas fa-book"></i>
                             <p>Subjects</p>
                         </a>
                     </li>
                     <li>
-                        <a href="/students">
+                        <a href="/section">
                             <i class="fas fa-chalkboard-teacher"></i>
                             <p>Sections</p>
                         </a>

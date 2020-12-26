@@ -10,6 +10,7 @@ use App\Http\Controllers\Response;
 Class DepartmentController extends Controller {
     use ApiResponser;
     private $request;
+
     public function __construct(Request $request){
 
         $this->request = $request;
@@ -23,7 +24,7 @@ Class DepartmentController extends Controller {
     public function createDepartment(Request $request)
     {
         $rules = [
-            'id' => 'required|min:1|max:200',
+            'id' => 'required|min:1|max:255',
             'name' => 'required|min:1|max:200',
             'date' => 'required|min:1|max:200',
         ];
@@ -38,14 +39,14 @@ Class DepartmentController extends Controller {
 
     public function findDepartment($id)
     {
-        $user = Department::findOrFail($id);
-        return $this->successResponse($user);
+        $department = Department::findOrFail($id);
+        return $this->successResponse($department);
     }
 
     public function updateDepartment(Request $request, $id)
     {
         $rules = [
-            'id' => 'required|max:200',
+            'id' => 'required|max:255',
             'name' => 'required|max:200',
             'date' => 'required|max:200',
         ];

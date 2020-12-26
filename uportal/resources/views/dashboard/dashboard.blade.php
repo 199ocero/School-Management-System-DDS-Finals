@@ -5,130 +5,124 @@
 @endsection
 
 @section('content')
-    <div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title"> Simple Table</h4>
-            </div>
+<div class="row">
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card h-100 py-2">
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead class=" text-primary">
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Country
-                            </th>
-                            <th>
-                                City
-                            </th>
-                            <th class="text-right">
-                                Salary
-                            </th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    Dakota Rice
-                                </td>
-                                <td>
-                                    Niger
-                                </td>
-                                <td>
-                                    Oud-Turnhout
-                                </td>
-                                <td class="text-right">
-                                    $36,738
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Minerva Hooper
-                                </td>
-                                <td>
-                                    Curaçao
-                                </td>
-                                <td>
-                                    Sinaai-Waas
-                                </td>
-                                <td class="text-right">
-                                    $23,789
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Sage Rodriguez
-                                </td>
-                                <td>
-                                    Netherlands
-                                </td>
-                                <td>
-                                    Baileux
-                                </td>
-                                <td class="text-right">
-                                    $56,142
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Philip Chaney
-                                </td>
-                                <td>
-                                    Korea, South
-                                </td>
-                                <td>
-                                    Overland Park
-                                </td>
-                                <td class="text-right">
-                                    $38,735
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Doris Greene
-                                </td>
-                                <td>
-                                    Malawi
-                                </td>
-                                <td>
-                                    Feldkirchen in Kärnten
-                                </td>
-                                <td class="text-right">
-                                    $63,542
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Mason Porter
-                                </td>
-                                <td>
-                                    Chile
-                                </td>
-                                <td>
-                                    Gloucester
-                                </td>
-                                <td class="text-right">
-                                    $78,615
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Jon Porter
-                                </td>
-                                <td>
-                                    Portugal
-                                </td>
-                                <td>
-                                    Gloucester
-                                </td>
-                                <td class="text-right">
-                                    $98,615
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                            Admins
+                        </div>
+                        <div class="h1 mb-0 font-weight-normal text-gray-1000">{{$count['admin']}}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-users-cog fa-4x" style="color: rgb(255, 113, 113)"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                            Instructors
+                        </div>
+                        <div class="h1 mb-0 font-weight-normal text-gray-1000">18</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user-tie fa-4x" style="color: rgb(255, 188, 62)"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                            Students
+                        </div>
+                        <div class="h1 mb-0 font-weight-normal text-gray-1000">18</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user-friends fa-4x" style="color: rgb(19, 223, 121)"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                            Departments
+                        </div>
+                        <div class="h1 mb-0 font-weight-normal text-gray-1000">{{$count['department']}}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-home fa-4x" style="color: rgb(61, 210, 255)"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                            Courses
+                        </div>
+                        <div class="h1 mb-0 font-weight-normal text-gray-1000">{{$count['course']}}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-scroll fa-4x" style="color: rgb(141, 42, 255)"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                            Subjects
+                        </div>
+                        <div class="h1 mb-0 font-weight-normal text-gray-1000">{{$count['subject']}}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-book fa-4x" style="color: rgb(219, 67, 161)"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                            Sections
+                        </div>
+                        <div class="h1 mb-0 font-weight-normal text-gray-1000">{{$count['section']}}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-chalkboard-teacher fa-4x" style="color: rgb(255, 110, 66)"></i>
+                    </div>
                 </div>
             </div>
         </div>

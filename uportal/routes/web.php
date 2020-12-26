@@ -23,9 +23,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>['auth','admin']],function (){
-    Route::get('/dashboard', function () {
-        return view('dashboard.dashboard');
-    });
+    Route::get('/dashboard', 'Dashboard\DashboardController@getDashboard');
 
     Route::get('/security', function () {
         return view('security.security');
@@ -39,11 +37,32 @@ Route::group(['middleware'=>['auth','admin']],function (){
     Route::delete('/admin-delete/{id}', 'Admin\AdminController@deleteAdmin');
 
     //department routes
-    Route::get('/department', 'Department\DepartmentController@registeredDeparment');
-    Route::post('/department-create', 'Department\DepartmentController@createDeparment');
-    Route::get('/department-edit/{id}', 'Department\DepartmentController@editDeparment');
-    Route::put('/department-update/{id}', 'Department\DepartmentController@updateDeparment');
-    Route::delete('/department-delete/{id}', 'Department\DepartmentController@deleteDeparment');
+    Route::get('/department', 'Department\DepartmentController@registeredDepartment');
+    Route::post('/department-create', 'Department\DepartmentController@createDepartment');
+    Route::get('/department-edit/{id}', 'Department\DepartmentController@editDepartment');
+    Route::put('/department-update/{id}', 'Department\DepartmentController@updateDepartment');
+    Route::delete('/department-delete/{id}', 'Department\DepartmentController@deleteDepartment');
+
+    //course routes
+    Route::get('/course', 'Course\CourseController@registeredCourse');
+    Route::post('/course-create', 'Course\CourseController@createCourse');
+    Route::get('/course-edit/{id}', 'Course\CourseController@editCourse');
+    Route::put('/course-update/{id}', 'Course\CourseController@updateCourse');
+    Route::delete('/course-delete/{id}', 'Course\CourseController@deleteCourse');
+
+    //subject routes
+    Route::get('/subject', 'Subject\SubjectController@registeredSubject');
+    Route::post('/subject-create', 'Subject\SubjectController@createSubject');
+    Route::get('/subject-edit/{id}', 'Subject\SubjectController@editSubject');
+    Route::put('/subject-update/{id}', 'Subject\SubjectController@updateSubject');
+    Route::delete('/subject-delete/{id}', 'Subject\SubjectController@deleteSubject');
+
+    //section routes
+    Route::get('/section', 'Section\SectionController@registeredSection');
+    Route::post('/section-create', 'Section\SectionController@createSection');
+    Route::get('/section-edit/{id}', 'Section\SectionController@editSection');
+    Route::put('/section-update/{id}', 'Section\SectionController@updateSection');
+    Route::delete('/section-delete/{id}', 'Section\SectionController@deleteSection');
 
 
 });

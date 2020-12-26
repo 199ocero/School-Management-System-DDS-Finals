@@ -32,10 +32,32 @@ $router->group(['middleware' => 'client.credentials'],function() use ($router){
     $router->delete('/users2/{id}', 'User2Controller@deleteUser'); //delete users with specific ID from site 1
 
     //deparment site 1
-    $router->get('/department1', 'DepartmentController@getDepartment');//show all users from site 1
-    $router->post('/department1', 'DepartmentController@createDepartment'); //create users from site 1
-    $router->get('/department1/{id}', 'DepartmentController@findDepartment'); //find users with specific ID from site 1
-    $router->put('/department1/{id}', 'DepartmentController@updateDepartment'); //update users with specific ID from site 1
-    $router->delete('/department1/{id}', 'DepartmentController@deleteDepartment'); //delete users with specific ID from site 1
+    $router->get('/department1', 'DepartmentController@getDepartment');//show all department from site 1
+    $router->post('/department1', 'DepartmentController@createDepartment'); //create department from site 1
+    $router->get('/department1/{id}', 'DepartmentController@findDepartment'); //find department with specific ID from site 1
+    $router->put('/department1/{id}', 'DepartmentController@updateDepartment'); //update department with specific ID from site 1
+    $router->delete('/department1/{id}', 'DepartmentController@deleteDepartment'); //delete department with specific ID from site 1
+
+    //course site 1
+    $router->get('/course1', 'CourseController@getCourse');//show all course from site 1
+    $router->post('/course1', 'CourseController@createCourse'); //create course from site 1
+    $router->get('/course1/{id}', 'CourseController@findCourse'); //find course with specific ID from site 1
+    $router->put('/course1/{id}', 'CourseController@updateCourse'); //update course with specific ID from site 1
+    $router->delete('/course1/{id}', 'CourseController@deleteCourse'); //delete course with specific ID from site 1
+
+    //subject site 1
+    $router->get('/subject1', 'SubjectController@getSubject');//show all subject from site 1
+    $router->post('/subject1', 'SubjectController@createSubject'); //create subject from site 1
+    $router->get('/subject1/{id}', 'SubjectController@findSubject'); //find subject with specific ID from site 1
+    $router->put('/subject1/{id}', 'SubjectController@updateSubject'); //update subject with specific ID from site 1
+    $router->delete('/subject1/{id}', 'SubjectController@deleteSubject'); //delete subject with specific ID from site 1
+
+    //section site 1
+    $router->get('/section1', 'SectionController@getSection');//show all subject from site 1
+    $router->post('/section1', 'SectionController@createSection'); //create subject from site 1
+    $router->get('/section1/{id}', 'SectionController@findSection'); //find subject with specific ID from site 1
+    $router->put('/section1/{id}', 'SectionController@updateSection'); //update subject with specific ID from site 1
+    $router->delete('/section1/{id}', 'SectionController@deleteSection'); //delete subject with specific ID from site 1
+
 });
 

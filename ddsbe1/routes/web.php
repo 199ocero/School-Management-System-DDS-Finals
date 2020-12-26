@@ -30,5 +30,26 @@ $router->get('/roles/{id}', 'RoleController@findRole'); // get role by id
 $router->get('/department','DepartmentController@getDepartment'); //get all department
 $router->post('/department', 'DepartmentController@createDepartment');  // create new department record
 $router->get('/department/{id}', 'DepartmentController@findDepartment'); // get user by id
-$router->put('/department/{id}', 'DepartmentController@updateDepartment'); // update user record
+$router->put('/department/{id}', 'DepartmentController@updateDepartment'); // update department record
 $router->delete('/department/{id}', 'DepartmentController@deleteDepartment'); // delete record
+
+//course
+$router->get('/course','CourseController@getCourse'); //get all course
+$router->post('/course', 'CourseController@createCourse');  // create new course record
+$router->get('/course/{id}', 'CourseController@findCourse'); // get course by id
+$router->put('/course/{id}', 'CourseController@updateCourse'); // update course record
+$router->delete('/course/{id}', 'CourseController@deleteCourse'); // delete record
+
+//subject
+$router->get('/subject','SubjectController@getSubject'); //get all subject
+$router->post('/subject', 'SubjectController@createSubject');  // create new subject record
+$router->get('/subject/{id}', 'SubjectController@findSubject'); // get subject by id
+$router->put('/subject/{id}', 'SubjectController@updateSubject'); // update subject record
+$router->delete('/subject/{id}', 'SubjectController@deleteSubject'); // delete record
+
+//section
+$router->get('/section','SectionController@getSection'); //get all subject
+$router->post('/section', 'SectionController@createSection');  // create new subject record
+$router->get('/section/{id}', 'SectionController@findSection'); // get subject by id
+$router->put('/section/{id}', 'SectionController@updateSection'); // update subject record
+$router->delete('/section/{id}', 'SectionController@deleteSection'); // delete record

@@ -38,40 +38,44 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h4 class="card-title">Registered Department</h4>
+                <h4 class="card-title">Registered Departments</h4>
                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addAdmin">Add Department</button>
                 
             </div>
             <div class="card-body">
+                @if (count($department)==0)
+                    <p style="color: rgb(255, 88, 88)">No records found.</p>
+                @else
+                    <div class="table-responsive">
+                        <table id="adminTable" class="table">
+                            <thead class=" text-primary">
+                                <th>Department ID</th>
+                                <th>Department Name</th>
+                                <th>Date Added</th>
+                            </thead>
+                            <tbody id="myTable">
+                                
+                                @for($i=0;$i<count($department);$i++)
+                                    <tr>
+                                        
+                                        <input type="hidden" class="department_del_class" value={{$department[$i]['id']}}>
+                                        <td>{{$department[$i]['id']}}</td>
+                                        <td>{{$department[$i]['name']}}</td>
+                                        <td>{{$department[$i]['date']}}</td>
+                                        <td style="padding: 0; margin:0">
+                                            <a href="/department-edit/{{$department[$i]['id']}}"><i class="fas fa-user-edit" style="margin: 5px; color: rgb(14, 163, 94)"></i></a>
+                                        </td>
+                                        <td style="padding: 0; margin:0">
+                                            <button type="submit" style="background: none; border:none" class="department_delete"><i class="fas fa-trash" style="margin: 5px; color: rgb(255, 67, 67)"></i></button>
+                                        </td>
+                                    </tr>
+                                @endfor
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                @endif
                 
-                <div class="table-responsive">
-                    <table id="adminTable" class="table">
-                        <thead class=" text-primary">
-                            <th>Department ID</th>
-                            <th>Department Name</th>
-                            <th>Date Added</th>
-                        </thead>
-                        <tbody id="myTable">
-                            
-                            @for($i=0;$i<count($department);$i++)
-                                <tr>
-                                    
-                                    <input type="hidden" class="department_del_class" value={{$department[$i]['id']}}>
-                                    <td>{{$department[$i]['id']}}</td>
-                                    <td>{{$department[$i]['name']}}</td>
-                                    <td>{{$department[$i]['date']}}</td>
-                                    <td style="padding: 0; margin:0">
-                                        <a href="/department-edit/{{$department[$i]['id']}}"><i class="fas fa-user-edit" style="margin: 5px; color: rgb(14, 163, 94)"></i></a>
-                                    </td>
-                                    <td style="padding: 0; margin:0">
-                                        <button type="submit" style="background: none; border:none" class="department_delete"><i class="fas fa-trash" style="margin: 5px; color: rgb(255, 67, 67)"></i></button>
-                                    </td>
-                                </tr>
-                            @endfor
-                            
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
     </div>
