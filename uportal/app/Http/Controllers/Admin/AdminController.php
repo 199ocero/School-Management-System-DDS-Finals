@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Hash;
 use Illuminate\Support\Facades\Session;
 use Auth;
+use Illuminate\Support\Facades\Http;
 
 class AdminController extends Controller
 {
@@ -17,6 +18,16 @@ class AdminController extends Controller
         return view('admin.admin')->with('admin',$admin);
     }
     public function createAdmin(Request $request){
+
+        $response = Http::post('http://localhost:8003/oauth/token', [
+            'grant_type' => $request->input('grant_type'),
+            'client_id' => $request->input('client_id'),
+            'client_secret' => $request->input('client_secret'),
+        ]);
+        
+        $data = json_decode($response,true);
+        
+
         $admin = new User();
 
         $year = date('Y');
@@ -30,7 +41,7 @@ class AdminController extends Controller
         $passhash = Hash::make($request->input('password'));
         $admin->password = $passhash;
         $admin->role = 'admin'; 
-
+        $admin->security_token = $data['access_token'];
         $admin->save();
         
         Session::flash('statuscode','success');

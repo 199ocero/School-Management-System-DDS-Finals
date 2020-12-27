@@ -53,3 +53,17 @@ $router->post('/section', 'SectionController@createSection');  // create new sub
 $router->get('/section/{id}', 'SectionController@findSection'); // get subject by id
 $router->put('/section/{id}', 'SectionController@updateSection'); // update subject record
 $router->delete('/section/{id}', 'SectionController@deleteSection'); // delete record
+
+//student
+$router->get('/student','StudentController@getStudent'); //get all subject
+$router->post('/student', 'StudentController@createStudent');  // create new subject record
+$router->get('/student/{id}', 'StudentController@findStudent'); // get subject by id
+$router->put('/student/{id}', 'StudentController@updateStudent'); // update subject record
+$router->delete('/student/{id}', 'StudentController@deleteStudent'); // delete record
+
+//instructor
+$router->get('/instructor','InstructorController@getInstructor'); //get all subject
+$router->post('/instructor', 'InstructorController@createInstructor');  // create new subject record
+$router->get('/instructor/{id}', 'InstructorController@findInstructor'); // get subject by id
+$router->put('/instructor/{id}', 'InstructorController@updateInstructor'); // update subject record
+$router->delete('/instructor/{id}', 'InstructorController@deleteInstructor'); // delete record

@@ -20,6 +20,20 @@
           {{ csrf_field() }}
             <div class="modal-body">
                 <div class="form-group">
+                    <label>Grant Type</label>
+                    <input type="text" name="grant_type" class="form-control rounded-0" value="client_credentials" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Client ID</label>
+                    <input type="text" name="client_id" class="form-control rounded-0" placeholder="Enter Client ID" required>
+                </div>
+                <div class="form-group">
+                    <label>Client Secret</label>
+                    <input type="text" name="client_secret" class="form-control rounded-0" placeholder="Enter Client Secret" required>
+                </div>
+                <hr>
+                <hr>
+                <div class="form-group">
                     <label>First Name</label>
                     <input type="text" name="fname" class="form-control rounded-0" placeholder="Enter First Name" required>
                 </div>
@@ -45,7 +59,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Close</button>
-                <button type="submit" name="registerbtn" class="btn btn-warning"><i class="fas fa-save"></i> Create</button>
+                <button type="submit" name="registerbtn" class="btn btn-primary"><i class="fas fa-save"></i> Create</button>
             </div>  
        </form>
     </div>

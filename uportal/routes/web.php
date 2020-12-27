@@ -65,4 +65,18 @@ Route::group(['middleware'=>['auth','admin']],function (){
     Route::put('/section-update/{id}', 'Section\SectionController@updateSection');
     Route::delete('/section-delete/{id}', 'Section\SectionController@deleteSection');
 
+    //student routes
+    Route::get('/student', 'Student\StudentController@registeredStudent');
+    Route::post('/student-create', 'Student\StudentController@createStudent');
+    Route::get('/student-edit/{id}', 'Student\StudentController@editStudent');
+    Route::put('/student-update/{id}', 'Student\StudentController@updateStudent');
+    Route::delete('/student-delete/{id}', 'Student\StudentController@deleteStudent');
+
+    //instructor routes
+    Route::get('/instructor', 'Instructor\InstructorController@registeredInstructor');
+    Route::post('/instructor-create', 'Instructor\InstructorController@createInstructor');
+    Route::get('/instructor-edit/{id}', 'Instructor\InstructorController@editInstructor');
+    Route::put('/instructor-update/{id}', 'Instructor\InstructorController@updateInstructor');
+    Route::delete('/instructor-delete/{id}', 'Instructor\InstructorController@deleteInstructor');
 });
+
