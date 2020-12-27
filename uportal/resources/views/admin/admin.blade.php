@@ -58,7 +58,7 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h4 class="card-title">Registered Admin</h4>
-                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addAdmin">Add Admin Profile</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAdmin">Add Admin Profile</button>
                 
             </div>
             <div class="card-body">

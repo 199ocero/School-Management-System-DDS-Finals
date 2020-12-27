@@ -30,7 +30,7 @@
                 </div>
                 <div class="text-right" style="margin-right: 13px">
                     <a href="/department" class="btn btn-secondary">Cancel</a>
-                    <button type="submit" name="update" class="btn btn-warning">Update</button>
+                    <button type="submit" name="update" class="btn btn-primary">Update</button>
                 </div>
             </form>
 

@@ -19,7 +19,7 @@ class AdminMiddleware
         if(Auth::user()->role=='admin'){
             return $next($request);
         }else{
-            return redirect('/home')->with('status','You are not allowed to Admin Dashboard.');
+            return redirect('/');
         }
         
     }

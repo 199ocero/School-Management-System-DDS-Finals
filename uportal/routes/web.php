@@ -14,15 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
     return view('welcome');
 });
-
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>['auth','admin']],function (){
+    
     Route::get('/dashboard', 'Dashboard\DashboardController@getDashboard');
 
     Route::get('/security', function () {
@@ -64,6 +65,4 @@ Route::group(['middleware'=>['auth','admin']],function (){
     Route::put('/section-update/{id}', 'Section\SectionController@updateSection');
     Route::delete('/section-delete/{id}', 'Section\SectionController@deleteSection');
 
-
 });
-
