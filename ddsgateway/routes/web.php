@@ -50,11 +50,20 @@ $router->group(['middleware' => 'client.credentials'],function() use ($router){
     $router->delete('/subject1/{id}', 'SubjectController@deleteSubject'); //delete subject with specific ID from site 1
 
     //section site 1
-    $router->get('/section1', 'SectionController@getSection');//show all subject from site 1
-    $router->post('/section1', 'SectionController@createSection'); //create subject from site 1
-    $router->get('/section1/{id}', 'SectionController@findSection'); //find subject with specific ID from site 1
-    $router->put('/section1/{id}', 'SectionController@updateSection'); //update subject with specific ID from site 1
-    $router->delete('/section1/{id}', 'SectionController@deleteSection'); //delete subject with specific ID from site 1
+    $router->get('/section1', 'SectionController@getSection');//show all section from site 1
+    $router->post('/section1', 'SectionController@createSection'); //create section from site 1
+    $router->get('/section1/{id}', 'SectionController@findSection'); //find section with specific ID from site 1
+    $router->put('/section1/{id}', 'SectionController@updateSection'); //update section with specific ID from site 1
+    $router->delete('/section1/{id}', 'SectionController@deleteSection'); //delete section with specific ID from site 1
+
+    //student site 1
+    $router->get('/student1', 'StudentController@getStudent');//show all student from site 1
+    $router->post('/student1', 'StudentController@createStudent'); //create student from site 1
+    $router->get('/student1/{id}', 'StudentController@findStudent'); //find student with specific ID from site 1
+    $router->put('/student1/{id}', 'StudentController@updateStudent'); //update student with specific ID from site 1
+    $router->delete('/student1/{id}', 'StudentController@deleteStudent'); //delete student with specific ID from site 1
+
+
 
 });
 

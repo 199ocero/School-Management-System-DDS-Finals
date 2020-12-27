@@ -26,7 +26,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Close</button>
-                <button type="submit" name="registerbtn" class="btn btn-warning"><i class="fas fa-save"></i> Create</button>
+                <button type="submit" name="registerbtn" class="btn btn-primary"><i class="fas fa-save"></i> Create</button>
             </div>  
        </form>
     </div>
@@ -39,7 +39,7 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h4 class="card-title">Registered Sections</h4>
-                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addAdmin">Add Section</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAdmin">Add Section</button>
                 
             </div>
             <div class="card-body">

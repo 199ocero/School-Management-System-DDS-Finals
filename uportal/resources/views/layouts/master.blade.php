@@ -34,8 +34,7 @@
     <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/demo/demo.css" rel="stylesheet" />
-    
-
+    <link rel="stylesheet" href="css/datepicker.css">
 
     <style>
        hr {
@@ -85,7 +84,7 @@
                     </li>
                     {{-- class="{{ 'students' == request()->path() ? 'active': ''}}" --}}
                     <li>
-                        <a href="/students">
+                        <a href="/student">
                             <i class="fas fa-user-friends"></i>
                             <p>Students</p>
                         </a>
@@ -211,7 +210,7 @@
     <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
     <script src="../assets/demo/demo.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
+    <script src="js/datepicker.js"></script>
     <script>
         @if (session('status'))
             swal({

@@ -28,14 +28,22 @@ class StudentController extends Controller
         $month = date('m');
 
         $id= uniqid("$year$month$day-");
-        $name= $request->input('name');
-        $date = date("F j, Y");
+        $fname= $request->input('fname');
+        $mname= $request->input('mname');
+        $lname= $request->input('lname');
+        $age= $request->input('age');
+        $birth_of_date= $request->input('birth_of_date');
+        $address= $request->input('address');
 
         $token = Auth::user()->security_token;
         $response = Http::withToken($token)->post("http://localhost:8003/student1", [
             'id' => $id,
-            'name'=> $name,
-            'date' => $date,
+            'fname'=> $fname,
+            'mname'=> $mname,
+            'lname'=> $lname,
+            'age'=> $age,
+            'birth_of_date'=> $birth_of_date,
+            'address' => $address,
         ]);
         
         Session::flash('statuscode','success');

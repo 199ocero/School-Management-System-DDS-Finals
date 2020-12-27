@@ -48,7 +48,7 @@
                         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                             Students
                         </div>
-                        <div class="h1 mb-0 font-weight-normal text-gray-1000">18</div>
+                        <div class="h1 mb-0 font-weight-normal text-gray-1000">{{$count['student']}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-user-friends fa-4x" style="color: rgb(19, 223, 121)"></i>

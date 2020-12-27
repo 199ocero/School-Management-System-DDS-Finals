@@ -35,7 +35,10 @@ class DashboardController extends Controller
         $response = Http::withToken($token)->get("http://localhost:8003/section1");
         $section = json_decode($response,true);
 
-        //,'department'=>$department
+        //student count
+        $response = Http::withToken($token)->get("http://localhost:8003/student1");
+        $student = json_decode($response,true);
+
         //overall count
         $count = array(
             'admin'=>$admin,
@@ -43,6 +46,7 @@ class DashboardController extends Controller
             'course'=>count($course),
             'subject'=>count($subject),
             'section'=>count($section),
+            'student'=>count($student),
         );
 
         return view('dashboard.dashboard')->with('count',$count);
