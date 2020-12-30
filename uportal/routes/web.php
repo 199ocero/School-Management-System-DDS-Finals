@@ -37,12 +37,12 @@ Route::group(['middleware'=>['auth','admin']],function (){
     Route::put('/admin-update/{id}', 'Admin\AdminController@updateAdmin');
     Route::delete('/admin-delete/{id}', 'Admin\AdminController@deleteAdmin');
 
-    //department routes
-    Route::get('/department', 'Department\DepartmentController@registeredDepartment');
-    Route::post('/department-create', 'Department\DepartmentController@createDepartment');
-    Route::get('/department-edit/{id}', 'Department\DepartmentController@editDepartment');
-    Route::put('/department-update/{id}', 'Department\DepartmentController@updateDepartment');
-    Route::delete('/department-delete/{id}', 'Department\DepartmentController@deleteDepartment');
+    //college routes
+    Route::get('/college', 'College\CollegeController@registeredCollege');
+    Route::post('/college-create', 'College\CollegeController@createCollege');
+    Route::get('/college-edit/{id}', 'College\CollegeController@editCollege');
+    Route::put('/college-update/{id}', 'College\CollegeController@updateCollege');
+    Route::delete('/college-delete/{id}', 'College\CollegeController@deleteCollege');
 
     //course routes
     Route::get('/course', 'Course\CourseController@registeredCourse');
@@ -78,5 +78,12 @@ Route::group(['middleware'=>['auth','admin']],function (){
     Route::get('/instructor-edit/{id}', 'Instructor\InstructorController@editInstructor');
     Route::put('/instructor-update/{id}', 'Instructor\InstructorController@updateInstructor');
     Route::delete('/instructor-delete/{id}', 'Instructor\InstructorController@deleteInstructor');
+
+    //student-role routes
+    Route::get('/student-role', 'Role\StudentRoleController@registeredStudentRole');
+    Route::post('/studentrole-create', 'Role\StudentRoleController@createStudentRole');
+    Route::get('/studentrole-edit/{id}', 'Role\StudentRoleController@editStudentRole');
+    Route::put('/studentrole-update/{id}', 'Role\StudentRoleController@updateStudentRole');
+    Route::delete('/studentrole-delete/{id}', 'Role\StudentRoleController@deleteStudentRole');;
 });
 

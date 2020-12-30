@@ -23,13 +23,50 @@
                     <label>Subject Name</label>
                     <input type="text" name="name" class="form-control rounded-0" placeholder="Enter Subject Name" required>
                 </div>
-            </div>
-            <div class="modal-body">
                 <div class="form-group">
                     <label>Subject Code</label>
                     <input type="text" name="code" class="form-control rounded-0" placeholder="Enter Subject Name" required>
                 </div>
+                <div class="form-group">
+                    <label>Course</label>
+                    <select class="form-control rounded-0 select_list" name="course" data-live-search="true" data-style="btn-primary" required>
+                        <option value="" disabled selected>Please select a course</option>
+                        @for ($i = 0; $i < count($course); $i++)
+                            <option>{{$course[$i]['name']}}</option>  
+                        @endfor
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label>Year</label>
+                    <select class="form-control rounded-0 select_list" name="year" data-live-search="true" data-style="btn-primary" required>
+                        <option value="" disabled selected>Please select a year</option>
+                        <option>1st Year</option>
+                        <option>2nd Year</option>
+                        <option>3rd Year</option>
+                        <option>4th Year</option>
+                        <option>5th Year</option>
+                    </select>       
+                </div>
+                <div class="form-group">
+                    <label>Semester</label>
+                    <select class="form-control rounded-0 select_list" name="semester" data-live-search="true" data-style="btn-primary" required>
+                        <option value="" disabled selected>Please select a semester</option>
+                        <option>1st Semester</option>
+                        <option>2nd Semester</option>
+                    </select> 
+                </div>
+                <div class="form-group">
+                    <label>Instructor</label>
+                    <select class="form-control rounded-0 select_list" name="instructor" data-live-search="true" data-style="btn-primary" required>
+                        <option value="" disabled selected>Please select an instructor</option>
+                        @for ($i = 0; $i < count($instructor); $i++)
+                        <option>{{$instructor[$i]['fname']}} {{$instructor[$i]['mname'][0]}}. {{$instructor[$i]['lname']}}</option>
+                        @endfor
+                    </select> 
+                </div>
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i> Close</button>
                 <button type="submit" name="registerbtn" class="btn btn-primary"><i class="fas fa-save"></i> Create</button>
@@ -53,11 +90,16 @@
                     <p style="color: rgb(255, 88, 88)">No records found.</p>
                 @else
                     <div class="table-responsive">
-                        <table id="adminTable" class="table">
+                        <table id="adminTable" class="table table-bordered">
                             <thead class=" text-primary">
                                 <th>Subject ID</th>
-                                <th>Subject Name</th>
-                                <th>Subject Code</th>
+                                <th>Name</th>
+                                <th>Code</th>
+                                <th>Year</th>
+                                <th>Semester</th>
+                                <th>Instructor</th>
+                                <th>Course</th>
+                                <th>College</th>
                                 <th>Date Added</th>
                             </thead>
                             <tbody id="myTable">
@@ -69,11 +111,16 @@
                                         <td>{{$subject[$i]['id']}}</td>
                                         <td>{{$subject[$i]['name']}}</td>
                                         <td>{{$subject[$i]['code']}}</td>
+                                        <td>{{$subject[$i]['year']}}</td>
+                                        <td>{{$subject[$i]['semester']}}</td>
+                                        <td>{{$subject[$i]['instructor']}}</td>
+                                        <td>{{$subject[$i]['course']}}</td>
+                                        <td>{{$subject[$i]['college']}}</td>
                                         <td>{{$subject[$i]['date']}}</td>
-                                        <td style="padding: 0; margin:0">
+                                        <td class="text-center">
                                             <a href="/subject-edit/{{$subject[$i]['id']}}"><i class="fas fa-user-edit" style="margin: 5px; color: rgb(14, 163, 94)"></i></a>
                                         </td>
-                                        <td style="padding: 0; margin:0">
+                                        <td class="text-center">
                                             <button type="submit" style="background: none; border:none" class="subject_delete"><i class="fas fa-trash" style="margin: 5px; color: rgb(255, 67, 67)"></i></button>
                                         </td>
                                     </tr>
@@ -93,6 +140,8 @@
 @endsection
 
 @section('scripts')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js" integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg==" crossorigin="anonymous"></script>
 <script>
 
     $(document).ready(function(){
@@ -141,6 +190,7 @@
         });
         
     });
+    $(".select_list").selectpicker();
 </script>
 @endsection
 

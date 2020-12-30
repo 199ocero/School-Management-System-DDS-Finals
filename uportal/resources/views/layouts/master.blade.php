@@ -77,7 +77,7 @@
                     </li>
                     {{-- class="{{ 'instructors' == request()->path() ? 'active': ''}}" --}}
                     <li>
-                        <a href="/instructors">
+                        <a href="/instructor">
                             <i class="fas fa-user-tie"></i>
                             <p>Instructors</p>
                         </a>
@@ -92,9 +92,9 @@
                     <hr/>
                     <p style="margin-left: 1.5rem; color:white" class="font-weight-light">School Management</p>
                     <li>
-                        <a href="/department">
+                        <a href="/college">
                             <i class="fas fa-home"></i>
-                            <p>Deparments</p>
+                            <p>Colleges</p>
                         </a>
                     </li>
                     <li>
@@ -116,18 +116,25 @@
                         </a>
                     </li>
                     <hr/>
+                    <p style="margin-left: 1.5rem; color:white" class="font-weight-light">Role Management</p>
+                    <li>
+                        <a href="/student-role">
+                            <i class="fas fa-home"></i>
+                            <p>Student Roles</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/instructor-role">
+                            <i class="fas fa-home"></i>
+                            <p>Instructor Roles</p>
+                        </a>
+                    </li>
+                    <hr/>
                     <p style="margin-left: 1.5rem; color:white" class="font-weight-light">Security Management</p>
                     <li>
                         <a href="/security">
                             <i class="fas fad fa-key"></i>
                             <p>API Key</p>
-                        </a>
-                    </li>
-                    <hr/>
-                    <li class="active-pro">
-                        <a href="#">
-                            <i class="fab fa-facebook"></i>
-                            <p>Visit UPortal FB Page</p>
                         </a>
                     </li>
                 </ul>

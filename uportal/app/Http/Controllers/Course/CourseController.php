@@ -16,8 +16,12 @@ class CourseController extends Controller
         $token = Auth::user()->security_token;
         $response = Http::withToken($token)->get("http://localhost:8003/course1");
         $course = json_decode($response,true);
+
+        $token = Auth::user()->security_token;
+        $response1 = Http::withToken($token)->get("http://localhost:8003/college1");
+        $college = json_decode($response1,true);
         
-        return view('course.course')->with('course',$course);
+        return view('course.course')->with('course',$course)->with('college',$college);
     }
 
     public function createCourse(Request $request){
@@ -29,6 +33,7 @@ class CourseController extends Controller
         $id= uniqid("$year$month$day-");
         $name= $request->input('name');
         $code= $request->input('code');
+        $college= $request->input('college');
         $date = date("F j, Y");
 
         $token = Auth::user()->security_token;
@@ -36,18 +41,23 @@ class CourseController extends Controller
             'id' => $id,
             'name'=> $name,
             'code'=>$code,
+            'college'=>$college,
             'date' => $date,
         ]);
         
         Session::flash('statuscode','success');
         return redirect('/course')->with('status','Course Created Successfully.');
+
     }
 
     public function editCourse($id){
         $token = Auth::user()->security_token;
         $course = Http::withToken($token)->get("http://localhost:8003/course1/".$id);
 
-        return view('course.course-edit')->with('course',$course);
+        $response1 = Http::withToken($token)->get("http://localhost:8003/college1");
+        $college = json_decode($response1,true);
+
+        return view('course.course-edit')->with('course',$course)->with('college',$college);
     }
     public function updateCourse(Request $request,$id){
         $token = Auth::user()->security_token;
@@ -55,6 +65,7 @@ class CourseController extends Controller
             'id' =>$request->input('id'),
             'name' => $request->input('name'),
             'code' => $request->input('code'),
+            'college' => $request->input('college'),
             'date' =>$request->input('date')
         ]);
 

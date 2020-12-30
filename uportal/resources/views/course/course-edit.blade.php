@@ -27,6 +27,15 @@
                     <div class="col-md">
                         <input type="text" name="code" class="form-control rounded-0" value="{{$course['code']}}">
                     </div>
+                    <label class="col-md">College</label>
+                    <div class="col-md">
+                        <select class="form-control rounded-0" name="course">
+                            @for ($i = 0; $i < count($college); $i++)
+                                <option>{{$college[$i]['name']}}</option>  
+                            @endfor
+                        </select>
+                        <small>If ever you forgot what college you've selected, here it is: <strong>{{$course['college']}}</strong>. If you want to choose another college please do so.</small>
+                    </div>
                     <label class="col-md">Date Added</label>
                     <div class="col-md">
                         <input type="text" name="date" class="form-control rounded-0" value="{{$course['date']}}" readonly>

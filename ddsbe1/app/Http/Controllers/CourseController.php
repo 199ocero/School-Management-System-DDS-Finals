@@ -27,6 +27,7 @@ Class CourseController extends Controller {
             'id' => 'required|min:1|max:255',
             'name' => 'required|min:1|max:200',
             'code' => 'required|min:1|max:200',
+            'college' => 'required|min:1|max:200',
             'date' => 'required|min:1|max:200',
         ];
 
@@ -50,6 +51,7 @@ Class CourseController extends Controller {
             'id' => 'required|min:1|max:255',
             'name' => 'required|min:1|max:200',
             'code' => 'required|min:1|max:200',
+            'college' => 'required|min:1|max:200',
             'date' => 'required|min:1|max:200',
         ];
 

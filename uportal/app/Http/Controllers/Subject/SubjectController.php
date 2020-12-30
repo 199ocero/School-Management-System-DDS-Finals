@@ -17,25 +17,59 @@ class SubjectController extends Controller
         $response = Http::withToken($token)->get("http://localhost:8003/subject1");
         $subject = json_decode($response,true);
         
-        return view('subject.subject')->with('subject',$subject);
+        $response1 = Http::withToken($token)->get("http://localhost:8003/course1");
+        $course = json_decode($response1,true);
+
+        $response2 = Http::withToken($token)->get("http://localhost:8003/instructor1");
+        $instructor = json_decode($response2,true);
+
+
+        return view('subject.subject')->with('subject',$subject)->with('course',$course)->with('instructor',$instructor);
     }
 
     public function createSubject(Request $request){
 
+        $token = Auth::user()->security_token;
+        $response = Http::withToken($token)->get("http://localhost:8003/college1");
+        $college = json_decode($response,true);
+
+        $response1 = Http::withToken($token)->get("http://localhost:8003/course1");
+        $course1 = json_decode($response1,true);
+
+        $course = $request->input('course');
+
+        $collegecode=null;
+        for($i=0;$i<count($course1);$i++){
+            if($course==$course1[$i]['name']){
+                for($j=0;$j<count($college);$j++){
+                    if($course1[$i]['college']==$college[$j]['name']){
+                        $collegecode = $college[$j]['code'];
+                    }
+                }
+            }
+        }
+
         $year = date('Y');
         $day = date('d');
         $month = date('m');
-
-        $id= uniqid("$year$month$day-");
         $name= $request->input('name');
+        $id= uniqid("$year$month$day-");
         $code= $request->input('code');
+        $year = $request->input('year');
+        $semester = $request->input('semester');
+        $instructor = $request->input('instructor');
+        
         $date = date("F j, Y");
 
-        $token = Auth::user()->security_token;
-        $response = Http::withToken($token)->post("http://localhost:8003/subject1", [
+        $response3 = Http::withToken($token)->post("http://localhost:8003/subject1", [
             'id' => $id,
             'name'=> $name,
             'code'=>$code,
+            'year'=>$year,
+            'semester'=>$semester,
+            'instructor'=>$instructor,
+            'course'=>$course,
+            'college'=>$collegecode,
             'date' => $date,
         ]);
         
@@ -47,14 +81,42 @@ class SubjectController extends Controller
         $token = Auth::user()->security_token;
         $subject = Http::withToken($token)->get("http://localhost:8003/subject1/".$id);
 
-        return view('subject.subject-edit')->with('subject',$subject);
+        $response1 = Http::withToken($token)->get("http://localhost:8003/course1");
+        $course = json_decode($response1,true);
+
+        return view('subject.subject-edit')->with('subject',$subject)->with('course',$course);
     }
     public function updateSubject(Request $request,$id){
+        $token = Auth::user()->security_token;
+        $response = Http::withToken($token)->get("http://localhost:8003/college1");
+        $college = json_decode($response,true);
+
+        $response1 = Http::withToken($token)->get("http://localhost:8003/course1");
+        $course1 = json_decode($response1,true);
+
+        $course = $request->input('course');
+
+        $collegecode=null;
+        for($i=0;$i<count($course1);$i++){
+            if($course==$course1[$i]['name']){
+                for($j=0;$j<count($college);$j++){
+                    if($course1[$i]['college']==$college[$j]['name']){
+                        $collegecode = $college[$j]['code'];
+                    }
+                }
+            }
+        }
+
         $token = Auth::user()->security_token;
         $response = Http::withToken($token)->put("http://localhost:8003/subject1/".$id,[
             'id' =>$request->input('id'),
             'name' => $request->input('name'),
             'code' => $request->input('code'),
+            'year' => $request->input('year'),
+            'semester' => $request->input('semester'),
+            'instructor' => $request->input('instructor'),
+            'course' => $request->input('course'),
+            'college' => $collegecode,
             'date' =>$request->input('date')
         ]);
 
@@ -67,4 +129,6 @@ class SubjectController extends Controller
         
         return response()->json(['status'=>'Poof! Subject is deleted.']);
     }
+
+    
 }

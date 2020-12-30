@@ -12,7 +12,7 @@ class Course extends Model
     protected $table = 'course';
     // column sa table
     protected $fillable = [
-        'id','name','code','date'
+        'id','name','code','college','date'
     ];
     
     protected $primaryKey = 'id';

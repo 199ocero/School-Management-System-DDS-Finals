@@ -26,12 +26,12 @@ $router->delete('/users/{id}', 'UserController@delete'); // delete record
 $router->get('/roles','RoleController@getRole'); //get all roles
 $router->get('/roles/{id}', 'RoleController@findRole'); // get role by id
 
-//department
-$router->get('/department','DepartmentController@getDepartment'); //get all department
-$router->post('/department', 'DepartmentController@createDepartment');  // create new department record
-$router->get('/department/{id}', 'DepartmentController@findDepartment'); // get user by id
-$router->put('/department/{id}', 'DepartmentController@updateDepartment'); // update department record
-$router->delete('/department/{id}', 'DepartmentController@deleteDepartment'); // delete record
+//college
+$router->get('/college','CollegeController@getCollege'); //get all college
+$router->post('/college', 'CollegeController@createCollege');  // create new college record
+$router->get('/college/{id}', 'CollegeController@findCollege'); // get user by id
+$router->put('/college/{id}', 'CollegeController@updateCollege'); // update college record
+$router->delete('/college/{id}', 'CollegeController@deleteCollege'); // delete record
 
 //course
 $router->get('/course','CourseController@getCourse'); //get all course
@@ -67,3 +67,10 @@ $router->post('/instructor', 'InstructorController@createInstructor');  // creat
 $router->get('/instructor/{id}', 'InstructorController@findInstructor'); // get subject by id
 $router->put('/instructor/{id}', 'InstructorController@updateInstructor'); // update subject record
 $router->delete('/instructor/{id}', 'InstructorController@deleteInstructor'); // delete record
+
+//instructor
+$router->get('/studentrole','StudentRoleController@getStudentRole'); //get all subject
+$router->post('/studentrole', 'StudentRoleController@createStudentRole');  // create new subject record
+$router->get('/studentrole/{id}', 'StudentRoleController@findStudentRole'); // get subject by id
+$router->put('/studentrole/{id}', 'StudentRoleController@updateStudentRole'); // update subject record
+$router->delete('/studentrole/{id}', 'StudentRoleController@deleteStudentRole'); // delete record

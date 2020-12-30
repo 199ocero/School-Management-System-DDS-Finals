@@ -12,7 +12,6 @@ class InstructorController extends Controller
 {
 
     public function registeredInstructor(){
-
         
         $token = Auth::user()->security_token;
         $response = Http::withToken($token)->get("http://localhost:8003/instructor1");
@@ -22,20 +21,27 @@ class InstructorController extends Controller
     }
 
     public function createInstructor(Request $request){
-
         $year = date('Y');
         $day = date('d');
         $month = date('m');
 
         $id= uniqid("$year$month$day-");
-        $name= $request->input('name');
-        $date = date("F j, Y");
+        $fname= $request->input('fname');
+        $mname= $request->input('mname');
+        $lname= $request->input('lname');
+        $age= $request->input('age');
+        $birth_of_date= $request->input('birth_of_date');
+        $address= $request->input('address');
 
         $token = Auth::user()->security_token;
         $response = Http::withToken($token)->post("http://localhost:8003/instructor1", [
             'id' => $id,
-            'name'=> $name,
-            'date' => $date,
+            'fname'=> $fname,
+            'mname'=> $mname,
+            'lname'=> $lname,
+            'age'=> $age,
+            'birth_of_date'=> $birth_of_date,
+            'address' => $address,
         ]);
         
         Session::flash('statuscode','success');
@@ -49,11 +55,23 @@ class InstructorController extends Controller
         return view('instructor.instructor-edit')->with('instructor',$instructor);
     }
     public function updateInstructor(Request $request,$id){
+
+        $fname= $request->input('fname');
+        $mname= $request->input('mname');
+        $lname= $request->input('lname');
+        $age= $request->input('age');
+        $birth_of_date= $request->input('birth_of_date');
+        $address= $request->input('address');
+        
         $token = Auth::user()->security_token;
         $response = Http::withToken($token)->put("http://localhost:8003/instructor1/".$id,[
-            'id' =>$request->input('id'),
-            'name' => $request->input('name'),
-            'date' =>$request->input('date')
+            'id' => $id,
+            'fname'=> $fname,
+            'mname'=> $mname,
+            'lname'=> $lname,
+            'age'=> $age,
+            'birth_of_date'=> $birth_of_date,
+            'address' => $address,
         ]);
 
         Session::flash('statuscode','success');

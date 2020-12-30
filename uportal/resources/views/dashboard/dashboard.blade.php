@@ -31,7 +31,7 @@
                         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
                             Instructors
                         </div>
-                        <div class="h1 mb-0 font-weight-normal text-gray-1000">18</div>
+                        <div class="h1 mb-0 font-weight-normal text-gray-1000">{{$count['instructor']}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-user-tie fa-4x" style="color: rgb(255, 188, 62)"></i>
@@ -65,9 +65,9 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
-                            Departments
+                            Colleges
                         </div>
-                        <div class="h1 mb-0 font-weight-normal text-gray-1000">{{$count['department']}}</div>
+                        <div class="h1 mb-0 font-weight-normal text-gray-1000">{{$count['colleges']}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-home fa-4x" style="color: rgb(61, 210, 255)"></i>

@@ -29,11 +29,11 @@ $router->group(['middleware' => 'client.credentials'],function() use ($router){
     $router->delete('/users2/{id}', 'User2Controller@deleteUser'); //delete users with specific ID from site 1
 
     //deparment site 1
-    $router->get('/department1', 'DepartmentController@getDepartment');//show all department from site 1
-    $router->post('/department1', 'DepartmentController@createDepartment'); //create department from site 1
-    $router->get('/department1/{id}', 'DepartmentController@findDepartment'); //find department with specific ID from site 1
-    $router->put('/department1/{id}', 'DepartmentController@updateDepartment'); //update department with specific ID from site 1
-    $router->delete('/department1/{id}', 'DepartmentController@deleteDepartment'); //delete department with specific ID from site 1
+    $router->get('/college1', 'CollegeController@getCollege');//show all college from site 1
+    $router->post('/college1', 'CollegeController@createCollege'); //create college from site 1
+    $router->get('/college1/{id}', 'CollegeController@findCollege'); //find college with specific ID from site 1
+    $router->put('/college1/{id}', 'CollegeController@updateCollege'); //update college with specific ID from site 1
+    $router->delete('/college1/{id}', 'CollegeController@deleteCollege'); //delete college with specific ID from site 1
 
     //course site 1
     $router->get('/course1', 'CourseController@getCourse');//show all course from site 1
@@ -63,7 +63,19 @@ $router->group(['middleware' => 'client.credentials'],function() use ($router){
     $router->put('/student1/{id}', 'StudentController@updateStudent'); //update student with specific ID from site 1
     $router->delete('/student1/{id}', 'StudentController@deleteStudent'); //delete student with specific ID from site 1
 
+    //instructor site 1
+    $router->get('/instructor1', 'InstructorController@getInstructor');//show all instructor from site 1
+    $router->post('/instructor1', 'InstructorController@createInstructor'); //create instructor from site 1
+    $router->get('/instructor1/{id}', 'InstructorController@findInstructor'); //find instructor with specific ID from site 1
+    $router->put('/instructor1/{id}', 'InstructorController@updateInstructor'); //update instructor with specific ID from site 1
+    $router->delete('/instructor1/{id}', 'InstructorController@deleteInstructor'); //delete instructor with specific ID from site 1
 
+    //studentrole site 1
+    $router->get('/studentrole1', 'StudentRoleController@getStudentRole');//show all instructor from site 1
+    $router->post('/studentrole1', 'StudentRoleController@createStudentRole'); //create instructor from site 1
+    $router->get('/studentrole1/{id}', 'StudentRoleController@findStudentRole'); //find instructor with specific ID from site 1
+    $router->put('/studentrole1/{id}', 'StudentRoleController@updateStudentRole'); //update instructor with specific ID from site 1
+    $router->delete('/studentrole1/{id}', 'StudentRoleController@deleteStudentRole'); //delete instructor with specific ID from site 1
 
 });
 

@@ -20,8 +20,8 @@ class DashboardController extends Controller
 
         //department count
         
-        $response = Http::withToken($token)->get("http://localhost:8003/department1");
-        $department = json_decode($response,true);
+        $response = Http::withToken($token)->get("http://localhost:8003/college1");
+        $college = json_decode($response,true);
 
         //course count
         $response = Http::withToken($token)->get("http://localhost:8003/course1");
@@ -39,14 +39,19 @@ class DashboardController extends Controller
         $response = Http::withToken($token)->get("http://localhost:8003/student1");
         $student = json_decode($response,true);
 
+        //instructor count
+        $response = Http::withToken($token)->get("http://localhost:8003/instructor1");
+        $instructor = json_decode($response,true);
+
         //overall count
         $count = array(
             'admin'=>$admin,
-            'department'=>count($department),
+            'colleges'=>count($college),
             'course'=>count($course),
             'subject'=>count($subject),
             'section'=>count($section),
             'student'=>count($student),
+            'instructor'=>count($instructor),
         );
 
         return view('dashboard.dashboard')->with('count',$count);

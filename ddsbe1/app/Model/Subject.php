@@ -12,7 +12,7 @@ class Subject extends Model
     protected $table = 'subject';
     // column sa table
     protected $fillable = [
-        'id','name','code','date'
+        'id','name','code','year','semester','instructor','course','college','date'
     ];
     
     protected $primaryKey = 'id';

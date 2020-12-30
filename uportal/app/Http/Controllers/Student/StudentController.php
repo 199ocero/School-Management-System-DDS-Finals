@@ -23,6 +23,7 @@ class StudentController extends Controller
 
     public function createStudent(Request $request){
 
+        
         $year = date('Y');
         $day = date('d');
         $month = date('m');
@@ -57,11 +58,22 @@ class StudentController extends Controller
         return view('student.student-edit')->with('student',$student);
     }
     public function updateStudent(Request $request,$id){
+        $fname= $request->input('fname');
+        $mname= $request->input('mname');
+        $lname= $request->input('lname');
+        $age= $request->input('age');
+        $birth_of_date= $request->input('birth_of_date');
+        $address= $request->input('address');
+        
         $token = Auth::user()->security_token;
         $response = Http::withToken($token)->put("http://localhost:8003/student1/".$id,[
-            'id' =>$request->input('id'),
-            'name' => $request->input('name'),
-            'date' =>$request->input('date')
+            'id' => $id,
+            'fname'=> $fname,
+            'mname'=> $mname,
+            'lname'=> $lname,
+            'age'=> $age,
+            'birth_of_date'=> $birth_of_date,
+            'address' => $address,
         ]);
 
         Session::flash('statuscode','success');

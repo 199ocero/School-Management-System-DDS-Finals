@@ -28,7 +28,7 @@
                     
                 </div>
                 <div class="text-right" style="margin-right: 13px">
-                    <button type="submit" name="update" class="btn btn-warning">Generate Key</button>
+                    <button type="submit" name="update" class="btn btn-primary">Generate Key</button>
                 </div>
             </form>
 

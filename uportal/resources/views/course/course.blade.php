@@ -23,11 +23,18 @@
                     <label>Course Name</label>
                     <input type="text" name="name" class="form-control rounded-0" placeholder="Enter Course Name" required>
                 </div>
-            </div>
-            <div class="modal-body">
                 <div class="form-group">
                     <label>Course Code</label>
-                    <input type="text" name="code" class="form-control rounded-0" placeholder="Enter Course Name" required>
+                    <input type="text" name="code" class="form-control rounded-0" placeholder="Enter Course Code" required>
+                </div>
+                <div class="form-group">
+                    <label>College</label>
+                    <select class="form-control rounded-0 select_college" name="college" data-live-search="true" data-style="btn-primary" required>
+                        <option value="" disabled selected>Please select a college</option>
+                        @for ($i = 0; $i < count($college); $i++)
+                            <option>{{$college[$i]['name']}}</option>
+                        @endfor
+                    </select>
                 </div>
             </div>
             <div class="modal-footer">
@@ -53,11 +60,12 @@
                     <p style="color: rgb(255, 88, 88)">No records found.</p>
                 @else
                     <div class="table-responsive">
-                        <table id="adminTable" class="table">
+                        <table id="adminTable" class="table table-bordered">
                             <thead class=" text-primary">
                                 <th>Course ID</th>
                                 <th>Course Name</th>
                                 <th>Course Code</th>
+                                <th>College</th>
                                 <th>Date Added</th>
                             </thead>
                             <tbody id="myTable">
@@ -69,6 +77,7 @@
                                         <td>{{$course[$i]['id']}}</td>
                                         <td>{{$course[$i]['name']}}</td>
                                         <td>{{$course[$i]['code']}}</td>
+                                        <td>{{$course[$i]['college']}}</td>
                                         <td>{{$course[$i]['date']}}</td>
                                         <td style="padding: 0; margin:0">
                                             <a href="/course-edit/{{$course[$i]['id']}}"><i class="fas fa-user-edit" style="margin: 5px; color: rgb(14, 163, 94)"></i></a>
@@ -93,6 +102,8 @@
 @endsection
 
 @section('scripts')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js" integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg==" crossorigin="anonymous"></script>
 <script>
 
     $(document).ready(function(){
@@ -139,7 +150,7 @@
                 }
             });
         });
-        
+        $(".select_college").selectpicker();
     });
 </script>
 @endsection

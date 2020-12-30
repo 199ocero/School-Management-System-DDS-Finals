@@ -67,7 +67,7 @@
                     <p style="color: rgb(255, 88, 88)">No records found.</p>
                 @else
                     <div class="table-responsive">
-                        <table id="adminTable" class="table">
+                        <table id="adminTable" class="table table-bordered">
                             <thead class=" text-primary">
                                 <th>Student ID</th>
                                 <th>First Name</th>

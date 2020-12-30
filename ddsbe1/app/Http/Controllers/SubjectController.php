@@ -27,6 +27,11 @@ Class SubjectController extends Controller {
             'id' => 'required|min:1|max:255',
             'name' => 'required|min:1|max:200',
             'code' => 'required|min:1|max:200',
+            'year' => 'required|min:1|max:200',
+            'semester' => 'required|min:1|max:200',
+            'instructor' => 'required|min:1|max:200',
+            'course' => 'required|min:1|max:200',
+            'college' => 'required|min:1|max:200',
             'date' => 'required|min:1|max:200',
         ];
 
@@ -50,6 +55,11 @@ Class SubjectController extends Controller {
             'id' => 'required|min:1|max:255',
             'name' => 'required|min:1|max:200',
             'code' => 'required|min:1|max:200',
+            'year' => 'required|min:1|max:200',
+            'semester' => 'required|min:1|max:200',
+            'instructor' => 'required|min:1|max:200',
+            'course' => 'required|min:1|max:200',
+            'college' => 'required|min:1|max:200',
             'date' => 'required|min:1|max:200',
         ];
 
