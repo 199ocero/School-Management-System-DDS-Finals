@@ -1,6 +1,6 @@
 # School Management System - Uportal
 
-School system that manage accounts of admin, instructor, and student. It has also have a CRUD (Create, Read/Seach, Update, Delete) functionality. You can use CRUD in colleges, course, subjects, and sections. 
+School system that manage accounts of admin, instructor, and student. It has also a CRUD (Create, Read/Seach, Update, Delete) functionality. You can use CRUD in colleges, course, subjects, and sections. 
 
 ## Getting Started
 
