@@ -1,11 +1,15 @@
 # School Management System - Uportal
 
-School Management System - manage account of admins, instructors, and students. It has also a CRUD (Create, Read/Search, Update, Delete) functionality. You can use CRUD in colleges, course, subjects, and sections. Aside from CRUD function, you can assign or enroll student with different subjects, instructors, and one section.
+School Management System - manage account of admins, instructors, and students. It has also a CRUD (Create, Read/Search, Update, Delete) functionality. You can use CRUD in colleges, courses, subjects, and sections. Aside from CRUD function, you can assign or enroll student and check its corresponding subjects, instructors and section.
 
-## Built With
+## Built With (Back-end)
 
-* [Lumen](https://lumen.laravel.com/) - The stunningly fast micro-framework by Laravel
-* [Boostrap](https://getbootstrap.com/) - The world’s most popular front-end open source toolkit
+* [Lumen](https://lumen.laravel.com/) - The stunningly fast micro-framework by Laravel (Back-end)
+
+## Built With (Front-end)
+
+* [Laravel](https://laravel.com/) - The PHP Framework for Web Artisans
+* [Boostrap](https://getbootstrap.com/) - The world’s most popular front-end open source toolkit (Front-End)
  
 ## Developers
 
