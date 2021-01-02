@@ -7,9 +7,12 @@ School system that manage accounts of admin, instructor, and student. It has als
 * [Lumen](https://lumen.laravel.com/) - The stunningly fast micro-framework by Laravel
 * [Boostrap](https://getbootstrap.com/) - The world’s most popular front-end open source toolkit
  
-## Authors
+## Developers
 
-* **Jay-Are M. Ocero** - *Initial work* - [UPortal Chatbot](http://uportalchatbot.herokuapp.com/)
+* **Jay-Are Ocero** - *Initial work* - [UPortal Chatbot](http://uportalchatbot.herokuapp.com/)
+* **Shanon Jamlan**
+* **Ryza Sapitan**
+* **Jay-Ann Arquiza**
 
 ## License
 
