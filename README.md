@@ -4,12 +4,12 @@ School Management System - manage account of admins, instructors, and students. 
 
 ## Built With (Back-end)
 
-* [Lumen](https://lumen.laravel.com/) - The stunningly fast micro-framework by Laravel (Back-end)
+* [Lumen](https://lumen.laravel.com/) - The stunningly fast micro-framework by Laravel
 
 ## Built With (Front-end)
 
 * [Laravel](https://laravel.com/) - The PHP Framework for Web Artisans
-* [Boostrap](https://getbootstrap.com/) - The world’s most popular front-end open source toolkit (Front-End)
+* [Boostrap](https://getbootstrap.com/) - The world’s most popular front-end open source toolki
  
 ## Developers
 
