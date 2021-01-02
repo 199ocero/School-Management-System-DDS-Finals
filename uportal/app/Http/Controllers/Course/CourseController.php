@@ -17,7 +17,6 @@ class CourseController extends Controller
         $response = Http::withToken($token)->get("http://localhost:8003/course1");
         $course = json_decode($response,true);
 
-        $token = Auth::user()->security_token;
         $response1 = Http::withToken($token)->get("http://localhost:8003/college1");
         $college = json_decode($response1,true);
         
@@ -36,6 +35,7 @@ class CourseController extends Controller
         $college= $request->input('college');
         $date = date("F j, Y");
 
+        
         $token = Auth::user()->security_token;
         $response = Http::withToken($token)->post("http://localhost:8003/course1", [
             'id' => $id,

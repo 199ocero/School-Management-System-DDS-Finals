@@ -84,6 +84,7 @@ Route::group(['middleware'=>['auth','admin']],function (){
     Route::post('/studentrole-create', 'Role\StudentRoleController@createStudentRole');
     Route::get('/studentrole-edit/{id}', 'Role\StudentRoleController@editStudentRole');
     Route::put('/studentrole-update/{id}', 'Role\StudentRoleController@updateStudentRole');
-    Route::delete('/studentrole-delete/{id}', 'Role\StudentRoleController@deleteStudentRole');;
+    Route::delete('/studentrole-delete/{id}', 'Role\StudentRoleController@deleteStudentRole');
+    Route::get('/studentrole-view-subject/{id}', 'Role\StudentRoleController@viewSubject');
 });
 

@@ -9,39 +9,39 @@ use App\Services\InstructorService;
 Class InstructorController extends Controller {
     use ApiResponser;
  
-    public $courseservice;
+    public $instructorservice;
     /**
      * Create a new controller instance
      * @return void
      */
-    public function __construct(InstructorService $courseservice)
+    public function __construct(InstructorService $instructorservice)
     {
-        $this->courseservice = $courseservice;
+        $this->instructorservice = $instructorservice;
     }
 
     public function getInstructor()
     {
-        return $this->successResponse($this->courseservice->getInstructor()); 
+        return $this->successResponse($this->instructorservice->getInstructor()); 
     }
 
     public function createInstructor(Request $request)
     {   
 
-        return $this->successResponse($this->courseservice->createInstructor($request->all()));
+        return $this->successResponse($this->instructorservice->createInstructor($request->all()));
     }
 
     public function findInstructor($id){
-        return $this->successResponse($this->courseservice->findInstructor($id));
+        return $this->successResponse($this->instructorservice->findInstructor($id));
     }
 
     public function updateInstructor(Request $request, $id)
     {
-        return $this->successResponse($this->courseservice->updateInstructor($request->all(),$id));
+        return $this->successResponse($this->instructorservice->updateInstructor($request->all(),$id));
     }
 
     public function deleteInstructor($id)
     {
-        return $this->successResponse($this->courseservice->deleteInstructor($id));
+        return $this->successResponse($this->instructorservice->deleteInstructor($id));
     }
 
 }

@@ -32,7 +32,7 @@
                     <select class="form-control rounded-0 select_college" name="college" data-live-search="true" data-style="btn-primary" required>
                         <option value="" disabled selected>Please select a college</option>
                         @for ($i = 0; $i < count($college); $i++)
-                            <option>{{$college[$i]['name']}}</option>
+                            <option value={{$college[$i]['id']}}>{{$college[$i]['name']}}</option>
                         @endfor
                     </select>
                 </div>
@@ -77,7 +77,11 @@
                                         <td>{{$course[$i]['id']}}</td>
                                         <td>{{$course[$i]['name']}}</td>
                                         <td>{{$course[$i]['code']}}</td>
-                                        <td>{{$course[$i]['college']}}</td>
+                                        @for ($j = 0; $j < count($college); $j++)
+                                            @if ($course[$i]['college']==$college[$j]['id'])
+                                                <td>{{$college[$j]['name']}}</td>    
+                                            @endif      
+                                        @endfor
                                         <td>{{$course[$i]['date']}}</td>
                                         <td style="padding: 0; margin:0">
                                             <a href="/course-edit/{{$course[$i]['id']}}"><i class="fas fa-user-edit" style="margin: 5px; color: rgb(14, 163, 94)"></i></a>

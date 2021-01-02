@@ -21,20 +21,23 @@
                     </div>
                     <label class="col-md">Course Name</label>
                     <div class="col-md">
-                        <input type="text" name="name" class="form-control rounded-0" value="{{$course['name']}}">
+                        <input type="text" name="name" class="form-control rounded-0" value="{{$course['name']}}" required>
                     </div>
                     <label class="col-md">Course Code</label>
                     <div class="col-md">
-                        <input type="text" name="code" class="form-control rounded-0" value="{{$course['code']}}">
+                        <input type="text" name="code" class="form-control rounded-0" value="{{$course['code']}}" required>
                     </div>
-                    <label class="col-md">College</label>
+                    <label class="col-md" style="margin-top: 3px">College</label>
                     <div class="col-md">
-                        <select class="form-control rounded-0" name="course">
+                        <select class="form-control rounded-0 select_list" name="course" data-live-search="true" data-style="btn-primary" required>
                             @for ($i = 0; $i < count($college); $i++)
-                                <option>{{$college[$i]['name']}}</option>  
+                                @if ($college[$i]['id']==$course['college'])
+                                    <option selected>{{$college[$i]['name']}}</option>
+                                @else
+                                    <option>{{$college[$i]['name']}}</option>
+                                @endif      
                             @endfor
                         </select>
-                        <small>If ever you forgot what college you've selected, here it is: <strong>{{$course['college']}}</strong>. If you want to choose another college please do so.</small>
                     </div>
                     <label class="col-md">Date Added</label>
                     <div class="col-md">
@@ -54,5 +57,11 @@
 @endsection
 
 @section('scripts')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js" integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg==" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $(".select_list").selectpicker();
+        });
+    </script>
 @endsection

@@ -24,13 +24,14 @@ Class StudentController extends Controller {
     public function createStudent(Request $request)
     {
         $rules = [
-            'id' => 'required|min:1|max:255',
-            'fname' => 'required|min:1|max:200',
-            'mname' => 'required|min:1|max:200',
-            'lname' => 'required|min:1|max:200',
-            'age'=>'required|min:1|max:200',
-            'birth_of_date'=>'required|min:1|max:200',
-            'address'=>'required|min:1|max:300',
+            'id' => 'min:1|max:255',
+            'fname' => 'min:1|max:200',
+            'mname' => 'min:1|max:200',
+            'lname' => 'min:1|max:200',
+            'age'=>'min:1|max:200',
+            'birth_of_date'=>'min:1|max:200',
+            'address'=>'max:300',
+            'role'=>'min:0|max:300',
         ];
 
         $this->validate($request, $rules);
@@ -50,13 +51,14 @@ Class StudentController extends Controller {
     public function updateStudent(Request $request, $id)
     {
         $rules = [
-            'id' => 'required|min:1|max:255',
-            'fname' => 'required|min:1|max:200',
-            'mname' => 'required|min:1|max:200',
-            'lname' => 'required|min:1|max:200',
-            'age'=>'required|min:1|max:200',
-            'birth_of_date'=>'required|min:1|max:200',
-            'address'=>'required|min:1|max:300',
+            'id' => 'min:1|max:255',
+            'fname' => 'min:1|max:200',
+            'mname' => 'min:1|max:200',
+            'lname' => 'min:1|max:200',
+            'age'=>'min:1|max:200',
+            'birth_of_date'=>'min:1|max:200',
+            'address'=>'max:300',
+            'role'=>'min:0|max:300',
         ];
 
         $this->validate($request, $rules);

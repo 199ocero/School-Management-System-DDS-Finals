@@ -19,17 +19,30 @@
                     <div class="col-md">
                         <input type="text" name="id" class="form-control rounded-0" value="{{$subject['id']}}" readonly>
                     </div>
-                    <label class="col-md">Name</label>
+                    <label class="col-md">Subject Name</label>
                     <div class="col-md">
-                        <input type="text" name="name" class="form-control rounded-0" value="{{$subject['name']}}">
+                        <input type="text" name="name" class="form-control rounded-0" value="{{$subject['name']}}" required>
                     </div>
-                    <label class="col-md">Code</label>
+                    <label class="col-md">Subject Code</label>
                     <div class="col-md">
-                        <input type="text" name="code" class="form-control rounded-0" value="{{$subject['code']}}">
+                        <input type="text" name="code" class="form-control rounded-0" value="{{$subject['code']}}" required>
+                    </div>
+                    <label class="col-md">Course</label>
+                    <div class="col-md">
+                        <select class="form-control rounded-0 select_list" name="course" data-live-search="true" data-style="btn-primary" required>
+                            <option value="" disabled selected>Please select a course</option>
+                            @for ($i = 0; $i < count($course); $i++)
+                                @if ($subject['course']==$course[$i]['id'])
+                                    <option value={{$course[$i]['id']}} selected>{{$course[$i]['name']}}</option>
+                                @else
+                                    <option value={{$course[$i]['id']}}>{{$course[$i]['name']}}</option>  
+                                @endif
+                            @endfor
+                        </select>
                     </div>
                     <label class="col-md">Year</label>
                     <div class="col-md">
-                        <select class="form-control rounded-0" name="year">
+                        <select class="form-control rounded-0 select_list" name="year" data-live-search="true" data-style="btn-primary" required>
                             @switch($subject['year'])
                                 @case('1st Year')
                                     <option selected>1st Year</option>
@@ -73,7 +86,7 @@
                     </div>
                     <label class="col-md">Semester</label>
                     <div class="col-md">
-                        <select class="form-control rounded-0" name="semester">
+                        <select class="form-control rounded-0 select_list" name="semester" data-live-search="true" data-style="btn-primary" required>
                             @switch($subject['semester'])
                                 @case('1st Semester')
                                     <option selected>1st Semester</option>
@@ -89,13 +102,16 @@
                         </select>  
                     </div>
                     <div class="col-md">
-                        <label>Course</label>
-                        <select class="form-control rounded-0" name="course">
-                            @for ($i = 0; $i < count($course); $i++)
-                                <option>{{$course[$i]['name']}}</option>  
+                        <label>Instructor</label>
+                        <select class="form-control rounded-0 select_list" name="instructor" data-live-search="true" data-style="btn-primary" required>
+                            @for ($i = 0; $i < count($instructor); $i++)
+                                @if ($subject['instructor']==$instructor[$i]['id'])
+                                    <option value={{$instructor[$i]['id']}} selected>{{$instructor[$i]['fname']}} {{$instructor[$i]['mname'][0]}}. {{$instructor[$i]['lname']}}</option>
+                                @else
+                                    <option value={{$instructor[$i]['id']}}>{{$instructor[$i]['fname']}} {{$instructor[$i]['mname'][0]}}. {{$instructor[$i]['lname']}}</option>
+                                @endif 
                             @endfor
                         </select>
-                        <small>If ever you forgot what course you've selected, here it is: <strong>{{$subject['course']}}</strong>. If you want to choose another course please do so.</small>
                     </div>
                     <label class="col-md">Date Added</label>
                     <div class="col-md">
@@ -115,5 +131,11 @@
 @endsection
 
 @section('scripts')
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js" integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg==" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $(".select_list").selectpicker();
+        });
+    </script>
 @endsection

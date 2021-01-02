@@ -14,6 +14,5 @@ class StudentRole extends Model
     protected $fillable = [
         'id','student_id','subject_id','section','date'
     ];
-    
-    protected $primaryKey = 'id';
+
 }

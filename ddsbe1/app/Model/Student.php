@@ -12,7 +12,7 @@ class Student extends Model
     protected $table = 'student';
     // column sa table
     protected $fillable = [
-        'id','fname','mname','lname','age','birth_of_date','address'
+        'id','fname','mname','lname','age','birth_of_date','address','role'
     ];
     
     protected $primaryKey = 'id';

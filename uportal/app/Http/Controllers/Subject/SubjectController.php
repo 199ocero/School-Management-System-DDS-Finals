@@ -23,27 +23,31 @@ class SubjectController extends Controller
         $response2 = Http::withToken($token)->get("http://localhost:8003/instructor1");
         $instructor = json_decode($response2,true);
 
+        $response3 = Http::withToken($token)->get("http://localhost:8003/college1");
+        $college = json_decode($response3,true);
 
-        return view('subject.subject')->with('subject',$subject)->with('course',$course)->with('instructor',$instructor);
+        return view('subject.subject')->with('subject',$subject)->with('course',$course)->with('instructor',$instructor)->with('college',$college);
     }
 
     public function createSubject(Request $request){
 
         $token = Auth::user()->security_token;
-        $response = Http::withToken($token)->get("http://localhost:8003/college1");
-        $college = json_decode($response,true);
 
         $response1 = Http::withToken($token)->get("http://localhost:8003/course1");
         $course1 = json_decode($response1,true);
 
+        $response2 = Http::withToken($token)->get("http://localhost:8003/college1");
+        $college1 = json_decode($response2,true);
+
         $course = $request->input('course');
 
         $collegecode=null;
-        for($i=0;$i<count($course1);$i++){
-            if($course==$course1[$i]['name']){
-                for($j=0;$j<count($college);$j++){
-                    if($course1[$i]['college']==$college[$j]['name']){
-                        $collegecode = $college[$j]['code'];
+
+        for ($i=0; $i < count($course1); $i++) { 
+            if ($course==$course1[$i]['id']) {
+                for ($j=0; $j < count($college1); $j++) { 
+                    if ($course1[$i]['college']==$college1[$j]['id']) {
+                        $collegecode = $college1[$j]['id'];
                     }
                 }
             }
@@ -70,7 +74,7 @@ class SubjectController extends Controller
             'instructor'=>$instructor,
             'course'=>$course,
             'college'=>$collegecode,
-            'date' => $date,
+            'date' => $date
         ]);
         
         Session::flash('statuscode','success');
@@ -84,12 +88,15 @@ class SubjectController extends Controller
         $response1 = Http::withToken($token)->get("http://localhost:8003/course1");
         $course = json_decode($response1,true);
 
-        return view('subject.subject-edit')->with('subject',$subject)->with('course',$course);
+        $response2 = Http::withToken($token)->get("http://localhost:8003/instructor1");
+        $instructor = json_decode($response2,true);
+
+        return view('subject.subject-edit')->with('subject',$subject)->with('course',$course)->with('instructor',$instructor);
     }
     public function updateSubject(Request $request,$id){
         $token = Auth::user()->security_token;
         $response = Http::withToken($token)->get("http://localhost:8003/college1");
-        $college = json_decode($response,true);
+        $college1 = json_decode($response,true);
 
         $response1 = Http::withToken($token)->get("http://localhost:8003/course1");
         $course1 = json_decode($response1,true);
@@ -97,11 +104,12 @@ class SubjectController extends Controller
         $course = $request->input('course');
 
         $collegecode=null;
-        for($i=0;$i<count($course1);$i++){
-            if($course==$course1[$i]['name']){
-                for($j=0;$j<count($college);$j++){
-                    if($course1[$i]['college']==$college[$j]['name']){
-                        $collegecode = $college[$j]['code'];
+
+        for ($i=0; $i < count($course1); $i++) { 
+            if ($course==$course1[$i]['id']) {
+                for ($j=0; $j < count($college1); $j++) { 
+                    if ($course1[$i]['college']==$college1[$j]['id']) {
+                        $collegecode = $college1[$j]['id'];
                     }
                 }
             }

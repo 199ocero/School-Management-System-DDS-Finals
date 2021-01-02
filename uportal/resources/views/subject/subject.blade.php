@@ -25,17 +25,16 @@
                 </div>
                 <div class="form-group">
                     <label>Subject Code</label>
-                    <input type="text" name="code" class="form-control rounded-0" placeholder="Enter Subject Name" required>
+                    <input type="text" name="code" class="form-control rounded-0" placeholder="Enter Subject Code" required>
                 </div>
                 <div class="form-group">
                     <label>Course</label>
                     <select class="form-control rounded-0 select_list" name="course" data-live-search="true" data-style="btn-primary" required>
                         <option value="" disabled selected>Please select a course</option>
                         @for ($i = 0; $i < count($course); $i++)
-                            <option>{{$course[$i]['name']}}</option>  
+                            <option value={{$course[$i]['id']}}>{{$course[$i]['name']}}</option>  
                         @endfor
                     </select>
-                    
                 </div>
                 <div class="form-group">
                     <label>Year</label>
@@ -61,7 +60,7 @@
                     <select class="form-control rounded-0 select_list" name="instructor" data-live-search="true" data-style="btn-primary" required>
                         <option value="" disabled selected>Please select an instructor</option>
                         @for ($i = 0; $i < count($instructor); $i++)
-                        <option>{{$instructor[$i]['fname']}} {{$instructor[$i]['mname'][0]}}. {{$instructor[$i]['lname']}}</option>
+                            <option value={{$instructor[$i]['id']}}>{{$instructor[$i]['fname']}} {{$instructor[$i]['mname'][0]}}. {{$instructor[$i]['lname']}}</option>
                         @endfor
                     </select> 
                 </div>
@@ -91,7 +90,7 @@
                 @else
                     <div class="table-responsive">
                         <table id="adminTable" class="table table-bordered">
-                            <thead class=" text-primary">
+                            <thead class="text-primary">
                                 <th>Subject ID</th>
                                 <th>Name</th>
                                 <th>Code</th>
@@ -113,9 +112,21 @@
                                         <td>{{$subject[$i]['code']}}</td>
                                         <td>{{$subject[$i]['year']}}</td>
                                         <td>{{$subject[$i]['semester']}}</td>
-                                        <td>{{$subject[$i]['instructor']}}</td>
-                                        <td>{{$subject[$i]['course']}}</td>
-                                        <td>{{$subject[$i]['college']}}</td>
+                                        @for ($y = 0; $y < count($instructor); $y++)
+                                            @if ($instructor[$y]['id']==$subject[$i]['instructor'])
+                                                <td>{{$instructor[$y]['fname']}} {{$instructor[$y]['mname'][0]}}. {{$instructor[$y]['lname']}}</td>
+                                            @endif
+                                        @endfor
+                                        @for ($j = 0; $j < count($course); $j++)
+                                            @if ($course[$j]['id']==$subject[$i]['course'])
+                                                <td>{{$course[$j]['name']}}</td>
+                                            @endif
+                                        @endfor
+                                        @for ($x = 0; $x < count($college); $x++)
+                                            @if ($college[$x]['id']==$subject[$i]['college'])
+                                                <td>{{$college[$x]['code']}}</td>
+                                            @endif
+                                        @endfor
                                         <td>{{$subject[$i]['date']}}</td>
                                         <td class="text-center">
                                             <a href="/subject-edit/{{$subject[$i]['id']}}"><i class="fas fa-user-edit" style="margin: 5px; color: rgb(14, 163, 94)"></i></a>

@@ -21,19 +21,19 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label>Student Name</label>
-                    <select class="form-control rounded-0 select_list" name="student" data-live-search="true" data-style="btn-primary" required>
+                    <select class="form-control rounded-0 select_list" name="student_id" data-live-search="true" data-style="btn-primary" required>
                         <option value="" disabled selected>Please select a name</option>
                         @for ($i = 0; $i < count($student); $i++)
-                            <option>{{$student[$i]['fname']}} {{$student[$i]['mname'][0]}}. {{$student[$i]['lname']}}</option>  
+                            <option value={{$student[$i]['id']}}>{{$student[$i]['fname']}} {{$student[$i]['mname'][0]}}. {{$student[$i]['lname']}}</option>  
                         @endfor
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Course</label>
-                    <select class="form-control rounded-0 select_list" name="course" data-live-search="true" data-style="btn-primary" required>
+                    <select class="form-control rounded-0 select_list" name="course_id" data-live-search="true" data-style="btn-primary" required>
                         <option value="" disabled selected>Please select a course</option>
                         @for ($i = 0; $i < count($course); $i++)
-                            <option>{{$course[$i]['name']}}</option>  
+                            <option value={{$course[$i]['id']}}>{{$course[$i]['name']}}</option>  
                         @endfor
                     </select>
                 </div>
@@ -59,10 +59,10 @@
                 </div>
                 <div class="form-group">
                     <label>Section</label>
-                    <select class="form-control rounded-0 select_list" name="section" data-live-search="true" data-style="btn-primary">
+                    <select class="form-control rounded-0 select_list" name="section_id" data-live-search="true" data-style="btn-primary">
                         <option value="" disabled selected>Please select a section</option>
                         @for ($i = 0; $i < count($section); $i++)
-                            <option>{{$section[$i]['name']}}</option>  
+                            <option value={{$section[$i]['id']}}>{{$section[$i]['name']}}</option>  
                         @endfor
                     </select>
                 </div>
@@ -90,31 +90,44 @@
                     <p style="color: rgb(255, 88, 88)">No records found.</p>
                 @else
                     <div class="table-responsive">
-                        <table id="adminTable" class="table">
-                            <thead class=" text-primary">
+                        <table id="adminTable" class="table table">
+                            <thead class="text-primary">
                                 <th>Role ID</th>
-                                <th>Student Role ID</th>
-                                <th>Subject ID</th>
+                                <th>Student Name</th>
+                                <th>Subjects</th>
                                 <th>Section</th>
                                 <th>Date</th>
                             </thead>
                             <tbody id="myTable">
-                                
-                                @for($i=0;$i<count($studentrole);$i++)
-                                    <tr>
-                                        <input type="hidden" class="studentrole_del_class" value={{$studentrole[$i]['id']}}>
-                                        <td>{{$studentrole[$i]['id']}}</td>
-                                        <td>{{$studentrole[$i]['student_id']}}</td>
-                                        <td>{{$studentrole[$i]['subject_id']}}</td>
-                                        <td>{{$studentrole[$i]['section']}}</td>
-                                        <td>{{$studentrole[$i]['date']}}</td>
-                                        <td style="padding: 0; margin:0">
-                                            <a href="/studentrole-edit/{{$studentrole[$i]['id']}}"><i class="fas fa-user-edit" style="margin: 5px; color: rgb(14, 163, 94)"></i></a>
-                                        </td>
-                                        <td style="padding: 0; margin:0">
-                                            <button type="submit" style="background: none; border:none" class="studentrole_delete"><i class="fas fa-trash" style="margin: 5px; color: rgb(255, 67, 67)"></i></button>
-                                        </td>
-                                    </tr>
+                                @for($i=0;$i<count($student);$i++)
+                                    @if ($student[$i]['role']!=null)
+                                        <tr>
+                                            <input type="hidden" class="studentrole_del_class" value={{$student[$i]['role']}}>
+                                            <td>{{$student[$i]['role']}}</td>
+                                            <td>{{$student[$i]['fname']}} {{$student[$i]['mname'][0]}}. {{$student[$i]['lname']}}</td>
+                                            <td style="padding: 0; margin:0">
+                                                <a href="studentrole-view-subject/{{$student[$i]['role']}}" class="btn btn-primary rounded-pill btn-sm" style="color: white;">View Subjects</a>
+                                            </td>
+                                            @for ($x = 0; $x < count($studentrole); $x++)
+                                                @if ($student[$i]['role']==$studentrole[$x]['id'])
+                                                    @for ($y = 0; $y < count($section); $y++)
+                                                        @if ($studentrole[$x]['section']==$section[$y]['id'])
+                                                            <td>{{$section[$y]['name']}}</td>
+                                                        @endif
+                                                    @endfor
+                                                    <td>{{$studentrole[$x]['date']}}</td>
+                                                    
+                                                    @break
+                                                @endif
+                                            @endfor
+                                            <td style="padding: 0; margin:0">
+                                                <a href="/studentrole-edit/{{$student[$i]['role']}}"><i class="fas fa-user-edit" style="margin: 5px; color: rgb(14, 163, 94)"></i></a>
+                                            </td>
+                                            <td style="padding: 0; margin:0">
+                                                <button type="submit" style="background: none; border:none" class="studentrole_delete"><i class="fas fa-trash" style="margin: 5px; color: rgb(255, 67, 67)"></i></button>
+                                            </td>
+                                        </tr>
+                                    @endif
                                 @endfor
                                 
                             </tbody>
