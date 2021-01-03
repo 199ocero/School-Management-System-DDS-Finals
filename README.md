@@ -24,3 +24,7 @@ School Management System - manage account of admins, instructors, and students. 
 * [Funda Of Web IT](https://www.youtube.com/channel/UCFySUiNfhvtgdgTdWbXnn6Q) - Admin Panel Tutorial
 
 ### Developer's Note
+
+```
+If ever you want to use the code from this project, please ask us for consent. You can contact us in Facebook Messenger just find the developer's name. It would be rude to open this github project and just copy paste the code to your project.
+```
