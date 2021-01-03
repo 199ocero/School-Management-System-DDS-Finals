@@ -25,4 +25,4 @@ School Management System - manage account of admins, instructors, and students. 
 
 ### Developer's Note
 
-If ever you want to use the code from this project, please ask us for consent. You can contact us in Facebook Messenger just find the developer's name. It would be rude for for "developers" who spent coutless hours to build this project and you just have to open this github project and just copy paste the code to your project.
+If ever you want to use the code from this project, please ask us for consent. You can contact us in Facebook Messenger just find the developer's name. It would be rude for "developers" who spent coutless hours to build this project and you just have to open this github project and just copy paste the code to your own.
